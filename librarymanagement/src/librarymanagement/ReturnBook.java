@@ -162,7 +162,7 @@ public class ReturnBook extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            pst=c.prepareStatement("SELECT * FROM library.book where id=?");
+            pst=c.prepareStatement("SELECT * FROM library.book where studentid=?");
             pst.setString(1, txtstudentid.getText());
             rs=pst.executeQuery();
             if(rs.next()){
@@ -191,7 +191,7 @@ public class ReturnBook extends javax.swing.JFrame {
         }
         else{
             try{
-            pst=c.prepareStatement("UPDATE `library`.`book` SET `status` = 'NotIssue', `issuedate` = '', `duedate` = '', `studentid` = NULL WHERE (`id` = ?)");
+            pst=c.prepareStatement("UPDATE `library`.`book` SET `status` = 'NotIssue', `issuedate` = '', `duedate` = '', `studentid` = NULL WHERE (`studentid` = ?)");
             pst.setString(1, txtstudentid.getText());
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Return Successfull");
